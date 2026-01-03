@@ -1,0 +1,115 @@
+/* Full page background */
+.signup-page {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1e1e2f, #0f0f1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* Signup card */
+  .signup-card {
+    width: 380px;
+    padding: 35px;
+    background: #151525;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  /* Title */
+  .signup-title {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  
+  /* Subtitle */
+  .signup-subtitle {
+    color: #a0a0c0;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  
+  /* Input fields */
+  .signup-input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    background: #1e1e2f;
+    border: 1px solid #2a2a3d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .signup-input::placeholder {
+    color: #8888aa;
+  }
+  
+  .signup-input:focus {
+    border-color: #4f7cff;
+    box-shadow: 0 0 0 1px rgba(79, 124, 255, 0.4);
+  }
+  
+  /* Signup button */
+  .signup-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    background: linear-gradient(135deg, #4f7cff, #2f5bff);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .signup-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(79, 124, 255, 0.4);
+  }
+  
+  .signup-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  /* Footer */
+  .signup-footer {
+    margin-top: 18px;
+    text-align: center;
+    color: #a0a0c0;
+    font-size: 14px;
+  }
+  
+  .signup-footer a {
+    color: #4f7cff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .signup-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
