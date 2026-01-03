@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css"; // 🔥 reuse same CSS
+import { BACKEND_URL } from "./GeneralContext";
 
 const SellActionWindow = ({ uid }) => {
   const { closeSellWindow } = useContext(GeneralContext); // ✅ CORRECT
@@ -11,7 +12,7 @@ const SellActionWindow = ({ uid }) => {
   const handleSellClick = async () => {
     try {
       await axios.post(
-        "http://localhost:3002/newOrder",
+        `${BACKEND_URL}/newOrder`,
         {
           name: uid,
           qty: Number(stockQuantity),

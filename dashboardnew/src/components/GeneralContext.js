@@ -1,3 +1,6 @@
+export const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:3002";
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { watchlist } from "../data/data";
@@ -44,7 +47,7 @@ export const GeneralContextProvider = ({ children }) => {
   // ---------------- HOLDINGS FETCH ----------------
   const fetchHoldings = async () => {
     try {
-      const res = await axios.get("http://localhost:3002/allHoldings");
+      const res = await axios.get(`${BACKEND_URL}/allHoldings`);
       setAllHoldings(Array.isArray(res.data) ? res.data : []);
     } catch {
       setAllHoldings([]);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import { BACKEND_URL } from "./GeneralContext";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -24,7 +25,7 @@ const Menu = () => {
     const verifyUser = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:3002/",
+          `${BACKEND_URL}/`,
           {},
           { withCredentials: true }
         );

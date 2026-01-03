@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
-
+import { BACKEND_URL } from "./GeneralContext";
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3002/signup",
+        `${BACKEND_URL}/signup`,
         { email, password, username },
         { withCredentials: true }
       );

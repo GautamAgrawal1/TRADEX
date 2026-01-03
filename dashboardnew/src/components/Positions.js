@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios, { all } from "axios";
 import { VerticalGraph } from "./VerticalGraph";
-
+import { BACKEND_URL } from "./GeneralContext";
 
 const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allPositions").then((res) => {
+    axios.get(`${BACKEND_URL}/allPositions`).then((res) => {
       // console.log(res.data);
       setAllPositions(res.data);
     })

@@ -2,14 +2,14 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
 import GeneralContext from "./GeneralContext";
-
+import { BACKEND_URL } from "./GeneralContext";
 const Holdings = () => {
   const { livePrices } = useContext(GeneralContext);
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/allHoldings")
+      .get(`${BACKEND_URL}/allHoldings`)
       .then((res) => setAllHoldings(res.data || []))
       .catch(() => setAllHoldings([]));
   }, []);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
-
+import { BACKEND_URL } from "./GeneralContext";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3002/login",
+        `${BACKEND_URL}/login`,
         { email, password },
         { withCredentials: true }
       );
