@@ -25,7 +25,7 @@ const Apps = () => {
   // 🔐 AUTH VERIFICATION
   useEffect(() => {
     axios
-      .post(`${BACKEND_URL}/verify`, {}, { withCredentials: true })
+      .post(`${BACKEND_URL}/`, {}, { withCredentials: true })
       .then((res) => {
         if (res.data.status) {
           setIsAuth(true);
