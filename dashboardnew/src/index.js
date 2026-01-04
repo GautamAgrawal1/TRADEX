@@ -5,6 +5,10 @@ import { CookiesProvider } from "react-cookie";
 
 import { GeneralContextProvider } from "./components/GeneralContext";
 import Apps from "./components/Apps";
+import axios from "axios";
+
+axios.defaults.withCredentials = true;
+
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
