@@ -22,7 +22,6 @@ const Apps = () => {
     location.pathname === "/login" ||
     location.pathname === "/signup";
 
-  // 🔐 AUTH VERIFICATION
   useEffect(() => {
     axios
       .post(`${BACKEND_URL}/`, {}, { withCredentials: true })
@@ -44,13 +43,21 @@ const Apps = () => {
       {isAuth && !hideMenu && <Menu />}
 
       <Routes>
-        {isAuth && <Route path="/*" element={<Home />} />}
-        {isAuth && <Route path="/orders" element={<Orders />} />}
-        {isAuth && <Route path="/holdings" element={<Holdings />} />}
-        {isAuth && <Route path="/positions" element={<Positions />} />}
-
+        {/* PUBLIC ROUTES */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        {/* PROTECTED ROUTES */}
+        {isAuth ? (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/holdings" element={<Holdings />} />
+            <Route path="/positions" element={<Positions />} />
+          </>
+        ) : (
+          <Route path="*" element={<Login />} />
+        )}
       </Routes>
     </>
   );
