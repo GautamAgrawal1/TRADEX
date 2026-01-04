@@ -30,7 +30,7 @@ const Apps = () => {
     }
 
     axios
-      .post(`${BACKEND_URL}/verify`, {}, { withCredentials: true })
+      .post(`${BACKEND_URL}/`, {}, { withCredentials: true })
       .then((res) => {
         if (res.data.status) {
           setIsAuth(true);
