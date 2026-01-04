@@ -19,7 +19,6 @@ const Signup = async (req, res) => {
       secure: true,
       sameSite: "None",
       path: "/",
-      domain: ".execute-api.ap-south-1.amazonaws.com"
     });
 
     res.json({ success: true, message: "Signup successful" });
@@ -49,7 +48,6 @@ const Login = async (req, res) => {
       secure: true,
       sameSite: "None",
       path: "/",
-      domain: ".execute-api.ap-south-1.amazonaws.com"
     });
 
     res.json({ success: true, message: "Login successful" });
