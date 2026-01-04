@@ -17,8 +17,9 @@ const Signup = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
-      path:"/"
+      sameSite: "None",
+      path: "/",
+      domain: ".execute-api.ap-south-1.amazonaws.com"
     });
 
     res.json({ success: true, message: "Signup successful" });
@@ -45,9 +46,10 @@ const Login = async (req, res) => {
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true,      
-      sameSite: "None", 
-      path:"/"
+      secure: true,
+      sameSite: "None",
+      path: "/",
+      domain: ".execute-api.ap-south-1.amazonaws.com"
     });
 
     res.json({ success: true, message: "Login successful" });
