@@ -21,7 +21,7 @@ const Apps = () => {
       {!hideMenu && <Menu />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/*" element={<Home />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/holdings" element={<Holdings />} />
         <Route path="/positions" element={<Positions />} />
