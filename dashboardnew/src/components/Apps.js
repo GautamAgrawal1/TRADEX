@@ -23,8 +23,14 @@ const Apps = () => {
     location.pathname === "/signup";
 
   useEffect(() => {
+    // 🔥 IMPORTANT: do not verify on login/signup
+    if (hideMenu) {
+      setLoading(false);
+      return;
+    }
+
     axios
-      .post(`${BACKEND_URL}/`, {}, { withCredentials: true })
+      .post(`${BACKEND_URL}/verify`, {}, { withCredentials: true })
       .then((res) => {
         if (res.data.status) {
           setIsAuth(true);
@@ -34,7 +40,7 @@ const Apps = () => {
       })
       .catch(() => navigate("/login"))
       .finally(() => setLoading(false));
-  }, []);
+  }, [location.pathname]);
 
   if (loading) return null;
 
@@ -43,21 +49,22 @@ const Apps = () => {
       {isAuth && !hideMenu && <Menu />}
 
       <Routes>
-        {/* PUBLIC ROUTES */}
+        {/* PUBLIC */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
-        {/* PROTECTED ROUTES */}
-        {isAuth ? (
+        {/* PROTECTED */}
+        {isAuth && (
           <>
             <Route path="/" element={<Home />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/holdings" element={<Holdings />} />
             <Route path="/positions" element={<Positions />} />
           </>
-        ) : (
-          <Route path="*" element={<Login />} />
         )}
+
+        {/* FALLBACK */}
+        <Route path="*" element={<Login />} />
       </Routes>
     </>
   );

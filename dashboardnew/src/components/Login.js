@@ -21,7 +21,9 @@ const Login = () => {
       console.log("DATA:", res.data);
   
       // 🔥 FORCE FULL RELOAD so auth check runs again
-      window.location.href = "/";
+      if (res.data.success) {
+        window.location.href = "/";
+      }
     } catch (err) {
       console.error("LOGIN ERROR:", err.response?.data || err.message);
       alert("Login failed");
