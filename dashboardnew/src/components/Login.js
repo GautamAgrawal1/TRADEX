@@ -20,12 +20,17 @@ const Login = () => {
       console.log("STATUS:", res.status);
       console.log("DATA:", res.data);
   
-      navigate("/"); // 🔥 FORCE NAVIGATION (temporary)
+      if (res.data.success) {
+        navigate("/");
+      } else {
+        alert(res.data.message || "Login failed");
+      }
     } catch (err) {
       console.error("LOGIN ERROR:", err.response?.data || err.message);
       alert("Login failed");
     }
   };
+  
   
   
   return (

@@ -5,7 +5,7 @@ import { watchlist } from "../data/data";
 import BuyActionWindow from "./BuyActionWindow";
 import SellActionWindow from "./SellActionWindow";
 export const BACKEND_URL =
-  process.env.REACT_APP_BACKEND_URL || "https://2rh4y7471k.execute-api.ap-south-1.amazonaws.com/prod";
+  process.env.REACT_APP_BACKEND_URL || "https://2rh4y7471k.execute-api.ap-south-1.amazonaws.com";
 
 const GeneralContext = React.createContext();
 
