@@ -17,10 +17,14 @@ const app = express();
 // ✅ CORS with credentials
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "https://main.d1zw08jtuelq1c.amplifyapp.com"
+    ],
     credentials: true,
   })
 );
+
+
 
 app.use(cookieParser());
 app.use(express.json());
