@@ -18,6 +18,7 @@ const Signup = async (req, res) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      path:"/"
     });
 
     res.json({ success: true, message: "Signup successful" });
@@ -45,7 +46,8 @@ const Login = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,      
-      sameSite: "none", 
+      sameSite: "None", 
+      path:"/"
     });
 
     res.json({ success: true, message: "Login successful" });
