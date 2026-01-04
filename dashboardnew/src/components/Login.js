@@ -20,11 +20,8 @@ const Login = () => {
       console.log("STATUS:", res.status);
       console.log("DATA:", res.data);
   
-      if (res.data.success) {
-        navigate("/");
-      } else {
-        alert(res.data.message || "Login failed");
-      }
+      // 🔥 FORCE FULL RELOAD so auth check runs again
+      window.location.href = "/";
     } catch (err) {
       console.error("LOGIN ERROR:", err.response?.data || err.message);
       alert("Login failed");
